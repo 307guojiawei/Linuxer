@@ -1,0 +1,69 @@
+/****************
+    MainWindow
+****************/
+QMainWindow{
+    background-color: #222933;
+}
+
+
+
+/****************
+    Sidebar
+****************/
+#sidebar{
+    background-color: rgb(20, 25, 29);
+
+}
+#sidebar QPushButton:checked,
+#sidebar QPushButton:hover {
+    background-color: @color03;
+}
+#sidebar QPushButton{
+    background-color: rgb(20, 25, 29);
+    border: 0px;
+    width: 44;
+    height: 44;
+    border-style: solid;
+    color: @color07;
+    margin: 3 8;
+    border-radius: 2;
+}
+
+/****************
+    MainWidget
+****************/
+#rightWidget QLabel{
+    color: #8391A1;
+    font-size: 16pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+
+
+/****************
+    Dash Board
+****************/
+#DashForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+#DashForm QLCDNumber{
+    /*color: #F8F6F6;*/
+    border: 0;
+}
+
+#lcdCpu{
+    color:#81BE4F;
+}
+
+#lcdMem{
+    color:#F19F34;
+}
+
+#lcdDisk{
+    color:#AC3C63;
+}
