@@ -4,8 +4,13 @@ import os
 import psutil
 import time
 
+lastIn = 0
+lastOut = 0
+lastTime = time.time()
 
 def getDashInfo():
+
+
     dashInfo = dict()
     #CPU info
     dashInfo['cpu_percent']=psutil.cpu_percent(interval=0.2)
@@ -19,7 +24,32 @@ def getDashInfo():
     dashInfo['disk_usage']=psutil.disk_usage("/")
     dashInfo['disk_io']=psutil.disk_io_counters()
     #Net Info
-    dashInfo['net_if']=psutil.net_if_stats()
+    dashInfo['net_io']=psutil.net_io_counters()
+    dashInfo = caculateNetSpeed(dashInfo)
+    return dashInfo
+
+def caculateNetSpeed(dashInfo):
+    netInfo = dashInfo['net_io']
+    thisIn = netInfo.bytes_recv
+    thisOut = netInfo.bytes_sent
+
+    global lastIn,lastOut,lastTime
+    devIn = thisIn - lastIn
+    devOut = thisOut - lastOut
+    thisTime = time.time()
+    devTime = thisTime - lastTime
+
+    if lastIn == 0 or lastOut == 0:#首次计算，忽略掉
+        devIn = 0
+        devOut = 0
+
+    lastIn = thisIn
+    lastOut = thisOut
+    lastTime = thisTime
+
+    dashInfo['net_speed_in'] = round(1 / 1024 * devIn / devTime, 1)
+    dashInfo['net_speed_out'] = round(1 / 1024 * devOut / devTime, 1)
+    #print(dashInfo['net_speed_in'])
     return dashInfo
 
 

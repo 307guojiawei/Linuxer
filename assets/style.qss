@@ -16,7 +16,7 @@ QMainWindow{
 }
 #sidebar QPushButton:checked,
 #sidebar QPushButton:hover {
-    background-color: @color03;
+    background-color: #1764F2;
 }
 #sidebar QPushButton{
     background-color: rgb(20, 25, 29);
@@ -41,9 +41,15 @@ QMainWindow{
 
 
 
+
+
 /****************
     Dash Board
 ****************/
+#DashForm{
+    border:10;
+}
+
 #DashForm QLabel{
     color: #F8F6F6;
     font-size: 14pt;
@@ -51,12 +57,10 @@ QMainWindow{
     border: 0;
 }
 
-#DashForm QLCDNumber{
-    /*color: #F8F6F6;*/
-    border: 0;
-}
+
 
 #lcdCpu{
+
     color:#81BE4F;
 }
 
@@ -67,3 +71,22 @@ QMainWindow{
 #lcdDisk{
     color:#AC3C63;
 }
+
+#lcdNetIn{
+    color: #2BC4FF;
+}
+
+#lcdNetOut{
+    color: #2BC4FF;
+}
+#DashForm QLCDNumber{
+
+    border:0
+}
+#DashForm QTextBrowser{
+    background-color: #222933;
+    border: 0;
+    color:#708192;
+    font-size: 14pt;
+}
+
