@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1125</width>
-    <height>552</height>
+    <width>1144</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -401,11 +401,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>28</x>
-     <y>261</y>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>772</x>
-     <y>792</y>
+     <y>551</y>
     </hint>
    </hints>
   </connection>
@@ -417,11 +417,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>37</x>
-     <y>302</y>
+     <y>299</y>
     </hint>
     <hint type="destinationlabel">
      <x>173</x>
-     <y>796</y>
+     <y>551</y>
     </hint>
    </hints>
   </connection>
@@ -437,7 +437,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>166</x>
-     <y>788</y>
+     <y>551</y>
     </hint>
    </hints>
   </connection>
@@ -449,11 +449,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>45</x>
-     <y>395</y>
+     <y>393</y>
     </hint>
     <hint type="destinationlabel">
      <x>141</x>
-     <y>752</y>
+     <y>551</y>
     </hint>
    </hints>
   </connection>

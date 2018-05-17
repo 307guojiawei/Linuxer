@@ -31,9 +31,9 @@ class DashWidget(QtWidgets.QWidget, Ui_DashForm):
     def initSysInfo(self):
         sysInfo = SystemInfo()
         cpuInfo = sysInfo.getCpu()
-        buf = "OS Release Name: "+sysInfo.getHostname()["hostname"] + "<br>" \
-            + "GCC version: "+sysInfo.getGccVersion()["gccVersion"] + "<br>" \
-            + "Linux version: "+sysInfo.getOsVersion()["osver"] + "<br>"\
+        buf = "OS Release Name: "+sysInfo.getHostname()["hostname"] + "<br><br>" \
+            + "GCC version: "+sysInfo.getGccVersion()["gccVersion"] + "<br><br>" \
+            + "Linux version: "+sysInfo.getOsVersion()["osver"] + "<br><br>"\
             + "CPU type:" + cpuInfo["cpu_model"]+"<br>"\
             + "CPU cores:"+str(cpuInfo["cpu_num"])
         self.systemInfo.setText(buf)
