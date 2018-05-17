@@ -13,9 +13,13 @@ class StartupsWidget(QtWidgets.QWidget, Ui_StartupForm):
     def __init__(self,parent = None):
         super(StartupsWidget, self).__init__(parent)
         self.setupUi(self)
-        self.myThread = StartupThread()
-        self.myThread.sinOut.connect(self.updateContent)
+        self.myThread = StartupThread(self)
+        self.myThread.sinOut.connect(self.handleServiceTable)
         self.myThread.start()
+
+        self.sysInfoThread = StartupThread_SysInfo(self)
+        self.sysInfoThread.sinOut.connect(self.handleSystemInfo)
+        self.sysInfoThread.start()
 
     def show(self):
         super(StartupsWidget, self).show()
@@ -71,9 +75,13 @@ class StartupsWidget(QtWidgets.QWidget, Ui_StartupForm):
             return
         webbrowser.open(fname_str)
 
-    def updateContent(self,payload):
-        self.updateStartupInfo(payload['info'])
+    def handleServiceTable(self,payload):
+        #self.updateStartupInfo(payload['info'])
         self.updateServiceTable(payload['services'])
+
+    def handleSystemInfo(self,payload):
+        self.updateStartupInfo(payload['info'])
+        #self.updateServiceTable(payload['services'])
 
     def handleOperation(self,url):
         print(url.fileName())
@@ -93,18 +101,29 @@ class StartupsWidget(QtWidgets.QWidget, Ui_StartupForm):
 
 
 class StartupThread(GeneralDaemonThread):
-    def __init__(self):
-        super(StartupThread, self).__init__()
+    def __init__(self,parent=None):
+        super(StartupThread, self).__init__(parent)
         self.freshInterval = 1
 
     def getInfo(self):
         res = dict()
-        res['info'] = getStartupInfo()
+        #res['info'] = getStartupInfo()
         tool = ServiceTool()
         res['services'] = tool.getServices()
         self.isActive = False
         return res
 
+
+class StartupThread_SysInfo(GeneralDaemonThread):
+    def __init__(self,parent=None):
+        super(StartupThread_SysInfo, self).__init__(parent)
+        self.freshInterval = 1
+
+    def getInfo(self):
+        res = dict()
+        res['info'] = getStartupInfo()
+        self.setActive(False)
+        return res
 
 
 

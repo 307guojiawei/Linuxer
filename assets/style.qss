@@ -133,3 +133,10 @@ QLCDNumber{
     color:#ffffff;
     font-size: 16pt;
 }
+
+/****************
+    Setup
+****************/
+#SetupForm QTextBrowser{
+    border:0;
+}
