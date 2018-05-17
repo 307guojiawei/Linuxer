@@ -67,6 +67,8 @@ class StartupsWidget(QtWidgets.QWidget, Ui_StartupForm):
         fname = QFileDialog.getSaveFileName(self,"Save SVG graph",filter="svg")
         fname_str = fname[0]+"."+fname[1]
         try:
+            if fname_str is None or len(fname_str) <= 1:
+                return
             fd = open(fname_str,"w")
             fd.write(res['svg'])
             fd.close()
