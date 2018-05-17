@@ -256,7 +256,10 @@
        <zorder>btnProcesses</zorder>
       </widget>
       <widget class="QWidget" name="rightWidget">
-       <layout class="QGridLayout" name="mainLayout">
+       <layout class="QGridLayout" name="mainLayout" rowstretch="1,0,6">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <item row="2" column="0">
          <widget class="QWidget" name="mainWidgetBox" native="true">
           <property name="sizePolicy">

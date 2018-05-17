@@ -37,7 +37,7 @@ class StartupsWidget(QtWidgets.QWidget, Ui_StartupForm):
                 "a{	text-decoration: none;color:#0A50F0}"\
                 "table{ table-layout:fixed; empty-cells:show; border-collapse: collapse; margin:0 auto; } td{ height:30px; } h1,h2,h3{ font-size:12px; margin:0; padding:0; } .table{ border:1px solid #cad9ea; color:#666; } .table th { background-repeat:repeat-x; height:30px; } .table td,.table th{ border:1px solid #cad9ea; padding:0 1em 0; } .table tr.alter{ background-color:#f5fafe; } "\
                 "</style>"
-        html += "<table>" \
+        html += "<table  style='border-collapse:collapse;' cellspacing='15'>" \
                "<tr><td>No.</td><td>Service Name</td><td>Description</td><td>Enable</td><td>Active</td></tr>"
         num = 1
         for service in services:

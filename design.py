@@ -105,6 +105,7 @@ class Ui_MainWindow(object):
         self.rightWidget.setObjectName("rightWidget")
         self.mainLayout = QtWidgets.QGridLayout(self.rightWidget)
         self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.mainLayout.setSpacing(0)
         self.mainLayout.setObjectName("mainLayout")
         self.mainWidgetBox = QtWidgets.QWidget(self.rightWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
@@ -158,6 +159,8 @@ class Ui_MainWindow(object):
         self.line.setObjectName("line")
         self.verticalLayout_2.addWidget(self.line)
         self.mainLayout.addWidget(self.widget, 0, 0, 1, 1)
+        self.mainLayout.setRowStretch(0, 1)
+        self.mainLayout.setRowStretch(2, 6)
         self.horizontalLayout.addWidget(self.splitter)
         MainWindow.setCentralWidget(self.centralwidget)
 

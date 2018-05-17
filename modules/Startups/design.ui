@@ -38,7 +38,7 @@
       <item>
        <widget class="QWidget" name="widget_seq" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -98,6 +98,12 @@ p, li { white-space: pre-wrap; }
       </item>
       <item>
        <widget class="QWidget" name="widget_bootTime" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="3,1">
          <property name="spacing">
           <number>0</number>
