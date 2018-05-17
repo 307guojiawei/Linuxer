@@ -4,7 +4,9 @@
 QMainWindow{
     background-color: #222933;
 }
-
+QLCDNumber{
+    border:0
+}
 
 
 /****************
@@ -77,10 +79,7 @@ QMainWindow{
 #lcdNetOut{
     color: #2BC4FF;
 }
-#DashForm QLCDNumber{
 
-    border:0
-}
 #DashForm QTextBrowser{
     background-color: #222933;
     border: 0;
@@ -88,3 +87,49 @@ QMainWindow{
     font-size: 14pt;
 }
 
+/****************
+    Start Up
+****************/
+#StartupForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+#widget_bootTime{
+    background-color: #2A323E;
+}
+
+#widget_seq{
+    background-color: #2A323E;
+}
+
+#lcdBootTime{
+    color: #2BC4FF;
+}
+
+#textStartupSeq{
+    background-color: #222933;
+    border: 0;
+    color:#ffffff;
+    font-size: 8pt;
+}
+
+#StartupForm QPushButton:hover{
+    background-color: #0E60F5;
+    font-size: 13pt;
+    color:#ffffff;
+}
+#StartupForm QPushButton{
+    background-color: #0A50F0;
+    color:#ffffff;
+    font-size: 12pt;
+}
+
+#serviceTable{
+    background-color: #222933;
+    border: 0;
+    color:#ffffff;
+    font-size: 16pt;
+}

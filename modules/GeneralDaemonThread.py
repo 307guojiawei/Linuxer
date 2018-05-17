@@ -7,7 +7,7 @@ class GeneralDaemonThread(QThread):
 
     def __init__(self,parent=None):
         super(GeneralDaemonThread, self).__init__(parent)
-        self.isActive = False
+        self.isActive = True
         self.freshInterval = 1
 
     def setActive(self,value=True):
@@ -17,7 +17,7 @@ class GeneralDaemonThread(QThread):
 
     def run(self):
         last = now = time.time()
-        interval = self.freshInterval
+        interval = int(self.freshInterval)
         while True:
             now = time.time()
             if now-last < interval or not self.isActive:
