@@ -1,5 +1,3 @@
-[TOC]
-
 # Linuxer
 a Linux System Monitoring Toolbox
 
