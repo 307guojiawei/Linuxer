@@ -25,6 +25,10 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.mainWidget.show()
 
     def selectPage(self):   #响应左边slidebar切换页面操作
+        sender = self.sender()
+        if sender.isChecked() == False: #本来就处于该页面下，无需切换
+            sender.setChecked(True)
+            return
         #清除所有按钮状态
         self.btnDash.setChecked(False)
         self.btnProcesses.setChecked(False)
@@ -32,7 +36,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.btnSetup.setChecked(False)
         self.btnStartups.setChecked(False)
 
-        sender = self.sender()
+
         sender.setChecked(True)
 
         #print(sender.objectName()+"click")
