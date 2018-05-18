@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtCore import QObject, pyqtSignal
 
 from modules.GeneralDaemonThread import GeneralDaemonThread
-from modules.Resource.Chart import MyDynamicMplCanvas
+from modules.Resource.Chart import QtChartCanvas
 from modules.Resource.design import Ui_resourceForm
 
 import core.DashInfo as DashInfo
@@ -12,10 +12,10 @@ class ResourceWidget(QtWidgets.QWidget, Ui_resourceForm):
     def __init__(self,parent = None):
         super(ResourceWidget,self).__init__(parent)
         self.setupUi(self)
-        self.cpu_canvas = MyDynamicMplCanvas(self)
+        self.cpu_canvas = QtChartCanvas(self)
         self.cpu_canvas.changeTop(True)
-        self.mem_canvas = MyDynamicMplCanvas(self)
-        self.net_canvas = MyDynamicMplCanvas(self)
+        self.mem_canvas = QtChartCanvas(self)
+        self.net_canvas = QtChartCanvas(self)
         self.net_canvas.setYLimit(lockY=False)
         self.cpu_layout.addWidget(self.cpu_canvas)
         self.mem_layout.addWidget(self.mem_canvas)
@@ -64,7 +64,7 @@ class ResourceWidget(QtWidgets.QWidget, Ui_resourceForm):
 
 class CPUThread(GeneralDaemonThread):
     def setParams(self):
-        self.freshInterval = 0.5
+        self.freshInterval = 0.15
         self.type = 0
 
     def getInfo(self):
@@ -80,7 +80,7 @@ class MemThread(GeneralDaemonThread):
 
 class NetThread(GeneralDaemonThread):
     def setParams(self):
-        self.freshInterval = 0.5
+        self.freshInterval = 0.4
         self.type = 2
 
     def getInfo(self):
