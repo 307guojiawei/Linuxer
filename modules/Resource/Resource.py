@@ -1,7 +1,7 @@
 
 from PyQt5 import QtWidgets
 
-from modules.Processes.design import Ui_Form
+from modules.Resource.design import Ui_Form
 
 
 class ResourceWidget(QtWidgets.QWidget, Ui_Form):

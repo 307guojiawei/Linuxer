@@ -9,6 +9,7 @@ class GeneralDaemonThread(QThread):
         super(GeneralDaemonThread, self).__init__(parent)
         self.isActive = True
         self.freshInterval = 1
+        self.setParams()
 
     def setActive(self,value=True):
         self.isActive = bool(value)
@@ -16,7 +17,8 @@ class GeneralDaemonThread(QThread):
             self.exit()
 
     def run(self):
-        last = now = time.time()
+        last = 0
+        now = time.time()
         interval = int(self.freshInterval)
         while True:
             now = time.time()
@@ -31,4 +33,7 @@ class GeneralDaemonThread(QThread):
         super(GeneralDaemonThread, self).exit()
         
     def getInfo(self):
+        pass
+
+    def setParams(self):
         pass

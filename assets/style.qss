@@ -1,3 +1,68 @@
+
+/*****************
+    QScrollArea
+******************/
+QScrollArea {
+    border: 0;
+}
+
+QScrollBar:vertical {
+    width: 12;
+    margin: 0 0 0 2;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #263848;
+    min-height: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar:horizontal {
+    height: 12;
+    margin: 2 0 0 0;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: @color01;
+    min-width: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    height: 0;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+
+
+
 /****************
     MainWindow
 ****************/
@@ -139,4 +204,50 @@ QLCDNumber{
 ****************/
 #SetupForm QTextBrowser{
     border:0;
+}
+
+/****************
+    Process
+****************/
+#processForm QLCDNumber{
+    border: 0;
+    color: #2BC4FF;
+}
+
+#processForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+}
+
+#processForm QTableView{
+    background-color:#222933;
+    alternate-background-color: #222933;
+    color: #ffffff;
+    font-size: 14pt;
+}
+
+#processForm QHeaderView {
+    color: #0BCFF7;
+    font: bold 13pt;
+    background-color: #263848;/*设置表头空白区域背景色*/
+    border:0px solid rgb(191,191,191);
+    min-height:29px;
+}
+
+#processForm QTableView QTableCornerButton::section {
+    color: #263848;
+    background-color: #263848;
+    border: 0px solid #f6f7fa;
+    border-radius:0px;
+    border-color: rgb(64, 64, 64);
+ }
+#processForm QPushButton:hover{
+    background-color: #0E60F5;
+    font-size: 13pt;
+    color:#ffffff;
+}
+#processForm QPushButton{
+    background-color: #0A50F0;
+    color:#ffffff;
+    font-size: 12pt;
 }
