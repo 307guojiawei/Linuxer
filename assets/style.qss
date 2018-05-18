@@ -274,3 +274,8 @@ QTabBar::tab{
     padding: 2px;
     background-color:#294050;
 }
+
+QTabBar::tab:selected{
+    color:#ffffff;
+    background-color: #406070
+}

@@ -1,3 +1,4 @@
+import random
 import time
 from PyQt5.QtCore import QThread, pyqtSignal
 
@@ -19,11 +20,11 @@ class GeneralDaemonThread(QThread):
     def run(self):
         last = 0
         now = time.time()
-        interval = int(self.freshInterval)
+        interval = self.freshInterval
         while True:
             now = time.time()
             if now-last < interval or not self.isActive:
-                time.sleep(0.1)
+                time.sleep(random.random()/3.0)
                 continue
             self.sinOut.emit(self.getInfo())
             last = now
