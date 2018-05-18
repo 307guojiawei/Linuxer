@@ -18,13 +18,33 @@ def getDashInfo():
     dashInfo['cpu_freq']=psutil.cpu_freq()
 
     #Mem Info
-    dashInfo['mem']=psutil.virtual_memory()
+    dashInfo['mem'] = psutil.virtual_memory()
 
     #Disk Info
     dashInfo['disk_usage']=psutil.disk_usage("/")
     dashInfo['disk_io']=psutil.disk_io_counters()
     #Net Info
     dashInfo['net_io']=psutil.net_io_counters()
+    dashInfo = caculateNetSpeed(dashInfo)
+    return dashInfo
+
+def getCPUInfo():
+    dashInfo = dict()
+    # CPU info
+    dashInfo['cpu_percent'] = psutil.cpu_percent(interval=0.1)
+    dashInfo['cpu_count'] = psutil.cpu_count()
+    dashInfo['cpu_freq'] = psutil.cpu_freq()
+    return dashInfo
+
+def getMemInfo():
+    dashInfo = dict()
+    # Mem Info
+    dashInfo['mem'] = psutil.virtual_memory()
+    return dashInfo
+
+def getNetSpeed():
+    dashInfo = dict()
+    dashInfo['net_io'] = psutil.net_io_counters()
     dashInfo = caculateNetSpeed(dashInfo)
     return dashInfo
 
@@ -49,7 +69,6 @@ def caculateNetSpeed(dashInfo):
 
     dashInfo['net_speed_in'] = round(1 / 1024 * devIn / devTime, 1)
     dashInfo['net_speed_out'] = round(1 / 1024 * devOut / devTime, 1)
-    #print(dashInfo['net_speed_in'])
     return dashInfo
 
 

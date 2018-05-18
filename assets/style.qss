@@ -251,3 +251,26 @@ QLCDNumber{
     color:#ffffff;
     font-size: 12pt;
 }
+
+/****************
+    Resource
+****************/
+
+#resouceForm QWidget{
+    background-color: #263848;
+}
+
+#resourceForm QTabWidget{
+    background-color: #263848;
+    border: 0;
+}
+QTabWidget::tab-bar{border-width:0px;}
+
+QTabBar::tab{
+    color:#0BCFF7;
+
+    max-width: 75px; min-width:75px; min-height:25px;
+    font:14px;
+    padding: 2px;
+    background-color:#294050;
+}
