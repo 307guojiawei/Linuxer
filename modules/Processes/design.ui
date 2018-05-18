@@ -28,7 +28,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Process Static</string>
+        <string>Processes Statistic</string>
        </property>
       </widget>
      </item>
@@ -117,6 +117,13 @@
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="labelPID">
+       <property name="text">
+        <string>Selected PID:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnKillProcess">
        <property name="text">
         <string>KILL Process</string>
@@ -128,5 +135,42 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>processTable</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>processForm</receiver>
+   <slot>selectProcess(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>320</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>282</x>
+     <y>571</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnKillProcess</sender>
+   <signal>clicked()</signal>
+   <receiver>processForm</receiver>
+   <slot>killProcess()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>656</x>
+     <y>409</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>selectProcess(QModelIndex)</slot>
+  <slot>killProcess()</slot>
+ </slots>
 </ui>

@@ -61,6 +61,9 @@ class Ui_processForm(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem1)
+        self.labelPID = QtWidgets.QLabel(processForm)
+        self.labelPID.setObjectName("labelPID")
+        self.horizontalLayout_2.addWidget(self.labelPID)
         self.btnKillProcess = QtWidgets.QPushButton(processForm)
         self.btnKillProcess.setObjectName("btnKillProcess")
         self.horizontalLayout_2.addWidget(self.btnKillProcess)
@@ -70,11 +73,14 @@ class Ui_processForm(object):
         self.verticalLayout_2.setStretch(2, 1)
 
         self.retranslateUi(processForm)
+        self.processTable.clicked['QModelIndex'].connect(processForm.selectProcess)
+        self.btnKillProcess.clicked.connect(processForm.killProcess)
         QtCore.QMetaObject.connectSlotsByName(processForm)
 
     def retranslateUi(self, processForm):
         _translate = QtCore.QCoreApplication.translate
         processForm.setWindowTitle(_translate("processForm", "Form"))
-        self.label.setText(_translate("processForm", "Process Static"))
+        self.label.setText(_translate("processForm", "Processes Statistic"))
+        self.labelPID.setText(_translate("processForm", "Selected PID:"))
         self.btnKillProcess.setText(_translate("processForm", "KILL Process"))
 

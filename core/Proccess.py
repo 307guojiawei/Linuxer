@@ -1,5 +1,5 @@
 import os
-
+import psutil
 
 class ProcessTool:
     def getProcessInfo(self):
@@ -26,6 +26,13 @@ class ProcessTool:
         process['mem'] = inputConv1[9]
         process['name'] = inputConv1[11]
         return process
+
+    def killProcess(self,pid):
+        print("pid:"+str(pid))
+        if psutil.pid_exists(pid):
+            p = psutil.Process(pid)
+            p.kill()
+            print("kill:"+str(pid))
 
 
 
