@@ -8,9 +8,6 @@ from PyQt5.QtChart import QChart, QChartView, QSplineSeries
 from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtWidgets import QSizePolicy, QWidget
 
-# matplotlib.use("Qt5Agg")
-# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-# from matplotlib.figure import Figure
 
 class QtChartCanvas(QWidget):
     def __init__(self,parent=None):
@@ -21,7 +18,6 @@ class QtChartCanvas(QWidget):
 
         self.plotView = QChartView(self.plotChart)
         self.verticalLayout.addWidget(self.plotView)
-        # self.setCentralWidget(self.plotView)
 
         self.plotCurve = QSplineSeries()
         self.plotCurve.setUseOpenGL(True)
@@ -29,7 +25,6 @@ class QtChartCanvas(QWidget):
         self.plotChart.addSeries(self.plotCurve)
 
         self.plotChart.createDefaultAxes()
-        # self.plotChart.axisX().setLabelFormat('%d')
         self.plotChart.axisX().hide()
 
         self.RecvData = []  # 存储接收到的传感器数据
@@ -46,7 +41,6 @@ class QtChartCanvas(QWidget):
         self.RecvData.append(payload["data"])
         self.RecvData=self.RecvData[-20:]
         plotData = []
-        #print("call")
         if self.isTop:
             for i, val in enumerate(self.RecvData):
                 plotData.append(QPoint(i, val))
@@ -63,7 +57,6 @@ class QtChartCanvas(QWidget):
         if self.setLockY:
             self.maxY=maxy
             self.minY=miny
-            # self.plotChart.axisY().setRange(miny,maxy)
 
     def changeTop(self,isTop):
         self.isTop=isTop
