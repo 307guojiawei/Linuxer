@@ -48,12 +48,30 @@ def getNetSpeed():
     dashInfo = caculateNetSpeed(dashInfo)
     return dashInfo
 
+class MediumFilter():
+    def __init__(self,size):
+        self.buffer = list()
+        self.filterSize = size
+
+    def filt(self,data):
+        if len(self.buffer)>self.filterSize:
+            self.buffer = self.buffer[1:]
+        self.buffer.append(data)
+        buffer2 = self.buffer[:]
+        buffer2.sort()
+
+        return buffer2[len(buffer2)//2]
+
+
+mediumfilter = MediumFilter(5)
+
+
 def caculateNetSpeed(dashInfo):
     netInfo = dashInfo['net_io']
     thisIn = netInfo.bytes_recv
     thisOut = netInfo.bytes_sent
 
-    global lastIn,lastOut,lastTime
+    global lastIn,lastOut,lastTime,mediumfilter
     devIn = thisIn - lastIn
     devOut = thisOut - lastOut
     thisTime = time.time()
@@ -67,14 +85,17 @@ def caculateNetSpeed(dashInfo):
     lastOut = thisOut
     lastTime = thisTime
 
-    dashInfo['net_speed_in'] = round(1 / 1024 * devIn / devTime, 1)
-    dashInfo['net_speed_out'] = round(1 / 1024 * devOut / devTime, 1)
+    dashInfo['net_speed_in'] = mediumfilter.filt(round(1 / 1024 * devIn / devTime, 1))
+    dashInfo['net_speed_out'] = mediumfilter.filt(round(1 / 1024 * devOut / devTime, 1))
     return dashInfo
+
+
+
 
 
 if __name__ == '__main__':
     while True:
         info = getDashInfo()
         print(info)
-        #print(info['net_if'])
+
 
