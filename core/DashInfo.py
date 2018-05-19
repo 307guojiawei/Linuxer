@@ -63,8 +63,8 @@ class MediumFilter():
         return buffer2[len(buffer2)//2]
 
 
-mediumfilter = MediumFilter(5)
-
+mediumfilterIn = MediumFilter(5)
+mediumfilterOut = MediumFilter(5)
 
 def caculateNetSpeed(dashInfo):
     netInfo = dashInfo['net_io']
@@ -85,8 +85,8 @@ def caculateNetSpeed(dashInfo):
     lastOut = thisOut
     lastTime = thisTime
 
-    dashInfo['net_speed_in'] = mediumfilter.filt(round(1 / 1024 * devIn / devTime, 1))
-    dashInfo['net_speed_out'] = mediumfilter.filt(round(1 / 1024 * devOut / devTime, 1))
+    dashInfo['net_speed_in'] = mediumfilterIn.filt(round(1 / 1024 * devIn / devTime, 1))
+    dashInfo['net_speed_out'] = mediumfilterOut.filt(round(1 / 1024 * devOut / devTime, 1))
     return dashInfo
 
 

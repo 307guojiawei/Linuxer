@@ -279,3 +279,7 @@ QTabBar::tab:selected{
     color:#ffffff;
     background-color: #406070
 }
+
+QChart{
+    background-color:#263848;
+}
