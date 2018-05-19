@@ -48,7 +48,7 @@ class QtChartCanvas(QWidget):
             self.plotCurve.replace(plotData)
             self.plotChart.axisX().setMax(len(plotData))
             if not self.setLockY:
-                self.plotChart.axisY().setRange(min(self.RecvData), max(self.RecvData))
+                self.plotChart.axisY().setRange(0, max(self.RecvData)+10)
             else:
                 self.plotChart.axisY().setRange(self.minY, self.maxY)
 
