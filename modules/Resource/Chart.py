@@ -6,25 +6,36 @@ from PyQt5 import QtCore, QtWidgets
 # import matplotlib
 from PyQt5.QtChart import QChart, QChartView, QSplineSeries
 from PyQt5.QtCore import Qt, QPoint
-from PyQt5.QtWidgets import QSizePolicy, QWidget
+from PyQt5.QtGui import QColor, QBrush
+from PyQt5.QtWidgets import QSizePolicy, QWidget, QStyle
 
 
 class QtChartCanvas(QWidget):
     def __init__(self,parent=None):
         super(QtChartCanvas, self).__init__(parent)
+        self.setStyleSheet("border:0;background-color:#263848")
         self.plotChart = QChart()
         self.plotChart.legend().hide()
         self.verticalLayout = QtWidgets.QVBoxLayout(self)
 
         self.plotView = QChartView(self.plotChart)
+        self.plotView.setStyleSheet("border:0;background-color:#263848;")
+        self.plotView.setBackgroundBrush(QBrush(QColor("#263848")))
+        self.plotChart.setBackgroundBrush(QBrush(QColor("#263848")))
+
+        #self.plotChart.setStyle()
         self.verticalLayout.addWidget(self.plotView)
 
         self.plotCurve = QSplineSeries()
+        self.plotCurve.setColor(QColor("#AABFFF"))
         self.plotCurve.setUseOpenGL(True)
-        self.plotCurve.pen().setColor(Qt.red)
+        self.plotCurve.pen().setColor(QColor("#FAF0FF"))
         self.plotChart.addSeries(self.plotCurve)
 
         self.plotChart.createDefaultAxes()
+        self.plotChart.axisY().setGridLineColor(QColor("#5D5C72"))
+        self.plotChart.axisY().setLinePenColor(QColor("#9D9CA2"))
+        self.plotChart.axisY().setLabelsColor(QColor("#F8F6F6"))
         self.plotChart.axisX().hide()
 
         self.RecvData = []  # 存储接收到的传感器数据
@@ -44,7 +55,6 @@ class QtChartCanvas(QWidget):
         if self.isTop:
             for i, val in enumerate(self.RecvData):
                 plotData.append(QPoint(i, val))
-
             self.plotCurve.replace(plotData)
             self.plotChart.axisX().setMax(len(plotData))
             if not self.setLockY:

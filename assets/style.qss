@@ -282,4 +282,15 @@ QTabBar::tab:selected{
 
 QChart{
     background-color:#263848;
+    border: 0;
+}
+
+QChartView{
+    background-color:#263848;
+    border: 0;
+
+}
+#resourceForm QtChartCanvas{
+    background-color:#263848;
+    border: 0;
 }
