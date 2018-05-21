@@ -1,6 +1,8 @@
-install : install-dependence build-deb_v2
+
+install : show-logo install-dependence build-deb_v2
 	@echo "Start dpkg install..."
 	@sudo dpkg -i ./dist/Linuxer.deb
+	@echo "All done. Check app list and enjoy :)"
 
 install-dependence :
 	@echo "Install dependencies ...."
@@ -46,12 +48,16 @@ clean-target :
 	rm -rf ./dist
 	@echo "Done."
 
-run : 
+run : show-logo 
 	@echo "Starting APP ....."
 	@./dist/bin/run.sh
 	@echo "-------APP closed--------"
 
-run-file :
+run-file : show-logo 
 	@echo "Starting APP ....."
 	@./dist/MainFrame/run.sh
 	@echo "-------APP closed--------"
+
+show-logo :
+	@clear
+	@cat ./logo.txt
