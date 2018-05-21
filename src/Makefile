@@ -1,4 +1,4 @@
-install : install-dependence build-deb
+install : install-dependence build-deb_v2
 	@echo "Start dpkg install..."
 	@sudo dpkg -i ./dist/Linuxer.deb
 
@@ -27,6 +27,11 @@ build-ui :
 build-deb : build
 	cp -r ./deb ./dist/
 	cp -r ./dist/bin/* ./dist/deb/opt/linuxer
+	dpkg -b ./dist/deb ./dist/Linuxer.deb
+
+build-deb_v2 : build-file
+	cp -r ./deb ./dist/
+	cp -r ./dist/MainFrame/* ./dist/deb/opt/linuxer
 	dpkg -b ./dist/deb ./dist/Linuxer.deb
 
 clean :
