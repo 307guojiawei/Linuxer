@@ -1,6 +1,13 @@
 ![Linuxer](https://github.com/307guojiawei/Linuxer/raw/master/src/Linuxer.png)
 
 > Linux System Monitoring Toolbox
+# Shortcuts
+![](https://github.com/307guojiawei/Linuxer/raw/master/doc/1.png)
+![](https://github.com/307guojiawei/Linuxer/raw/master/doc/2.png)
+![](https://github.com/307guojiawei/Linuxer/raw/master/doc/3.png)
+![](https://github.com/307guojiawei/Linuxer/raw/master/doc/4.png)
+![](https://github.com/307guojiawei/Linuxer/raw/master/doc/5.png)
+
 
 # Tutorials
 ## Install
