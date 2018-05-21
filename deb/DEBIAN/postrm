@@ -1,0 +1,3 @@
+# !/bin/sh
+rm /usr/share/pixmaps/Linuxer.png
+rm /usr/share/applications/Linuxer.desktop

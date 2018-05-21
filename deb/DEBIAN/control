@@ -1,0 +1,8 @@
+Package: Linuxer
+Version: 1                
+Section: free             
+Prioritt: optional       
+Architecture: amd64    
+Maintainer: guojiawei <307guojiawei@163.com> 
+Description: Linux<br>System<br>Monitoring<br>Toolbox
+

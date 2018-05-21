@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Linuxer</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/img/Linuxer.png</normaloff>assets/img/Linuxer.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <property name="leftMargin">
