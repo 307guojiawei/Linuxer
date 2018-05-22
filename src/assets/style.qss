@@ -1,0 +1,296 @@
+
+/*****************
+    QScrollArea
+******************/
+QScrollArea {
+    border: 0;
+}
+
+QScrollBar:vertical {
+    width: 12;
+    margin: 0 0 0 2;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #263848;
+    min-height: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar:horizontal {
+    height: 12;
+    margin: 2 0 0 0;
+    border-radius: 2;
+    background-color: transparent;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: @color01;
+    min-width: 20px;
+    border-radius: 2;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    height: 0;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    border-bottom-right-radius: 2;
+    border-bottom-left-radius: 2;
+    background-color: transparent;
+}
+
+QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+
+
+
+/****************
+    MainWindow
+****************/
+QMainWindow{
+    background-color: #222933;
+}
+QLCDNumber{
+    border:0
+}
+
+
+/****************
+    Sidebar
+****************/
+#sidebar{
+    background-color: rgb(20, 25, 29);
+
+}
+#sidebar QPushButton:checked,
+#sidebar QPushButton:hover {
+    background-color: #1764F2;
+}
+#sidebar QPushButton{
+    background-color: rgb(20, 25, 29);
+    border: 0px;
+    width: 44;
+    height: 44;
+    border-style: solid;
+    color: @color07;
+    margin: 3 8;
+    border-radius: 2;
+}
+
+/****************
+    MainWidget
+****************/
+#rightWidget QLabel{
+    color: #8391A1;
+    font-size: 16pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+
+
+/****************
+    Dash Board
+****************/
+#DashForm{
+    border:10;
+}
+
+#DashForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+
+
+#lcdCpu{
+
+    color:#81BE4F;
+}
+
+#lcdMem{
+    color:#F19F34;
+}
+
+#lcdDisk{
+    color:#AC3C63;
+}
+
+#lcdNetIn{
+    color: #2BC4FF;
+}
+
+#lcdNetOut{
+    color: #2BC4FF;
+}
+
+#DashForm QTextBrowser{
+    background-color: #222933;
+    border: 0;
+    color:#708192;
+    font-size: 14pt;
+}
+
+/****************
+    Start Up
+****************/
+#StartupForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+    padding-bottom: 8;
+    border: 0;
+}
+
+#widget_bootTime{
+    background-color: #2A323E;
+}
+
+#widget_seq{
+    background-color: #2A323E;
+}
+
+#lcdBootTime{
+    color: #2BC4FF;
+}
+
+#textStartupSeq{
+    background-color: #222933;
+    border: 0;
+    color:#ffffff;
+    font-size: 8pt;
+}
+
+#StartupForm QPushButton:hover{
+    background-color: #0E60F5;
+    font-size: 13pt;
+    color:#ffffff;
+}
+#StartupForm QPushButton{
+    background-color: #0A50F0;
+    color:#ffffff;
+    font-size: 12pt;
+}
+
+#serviceTable{
+    background-color: #222933;
+    border: 0;
+    color:#ffffff;
+    font-size: 16pt;
+}
+
+/****************
+    Setup
+****************/
+#SetupForm QTextBrowser{
+    border:0;
+}
+
+/****************
+    Process
+****************/
+#processForm QLCDNumber{
+    border: 0;
+    color: #2BC4FF;
+}
+
+#processForm QLabel{
+    color: #F8F6F6;
+    font-size: 14pt;
+}
+
+#processForm QTableView{
+    background-color:#222933;
+    alternate-background-color: #222933;
+    color: #ffffff;
+    font-size: 14pt;
+}
+
+#processForm QHeaderView {
+    color: #0BCFF7;
+    font: bold 13pt;
+    background-color: #263848;/*设置表头空白区域背景色*/
+    border:0px solid rgb(191,191,191);
+    min-height:29px;
+}
+
+#processForm QTableView QTableCornerButton::section {
+    color: #263848;
+    background-color: #263848;
+    border: 0px solid #f6f7fa;
+    border-radius:0px;
+    border-color: rgb(64, 64, 64);
+ }
+#processForm QPushButton:hover{
+    background-color: #0E60F5;
+    font-size: 13pt;
+    color:#ffffff;
+}
+#processForm QPushButton{
+    background-color: #0A50F0;
+    color:#ffffff;
+    font-size: 12pt;
+}
+
+/****************
+    Resource
+****************/
+
+#resouceForm QWidget{
+    background-color: #263848;
+}
+
+#resourceForm QTabWidget{
+    background-color: #263848;
+    border: 0;
+}
+QTabWidget::tab-bar{border-width:0px;}
+
+QTabBar::tab{
+    color:#0BCFF7;
+
+    max-width: 75px; min-width:75px; min-height:25px;
+    font:14px;
+    padding: 2px;
+    background-color:#294050;
+}
+
+QTabBar::tab:selected{
+    color:#ffffff;
+    background-color: #406070
+}
+
+QChart{
+    background-color:#263848;
+    border: 0;
+}
+
+QChartView{
+    background-color:#263848;
+    border: 0;
+
+}
+#resourceForm QtChartCanvas{
+    background-color:#263848;
+    border: 0;
+}
