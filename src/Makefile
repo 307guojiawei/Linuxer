@@ -1,5 +1,5 @@
 
-install : show-logo install-dependence build-deb_v2
+install : install-dependence build-deb_v2
 	@echo "Start dpkg install..."
 	@sudo dpkg -i ./dist/Linuxer.deb
 	@echo "All done. Check app list and enjoy :)"
@@ -23,7 +23,7 @@ build-file : build-ui clean-target
 	@cp ./run.sh ./dist/MainFrame/run.sh
 	@echo "-------Build Done--------"
 
-build-ui :
+build-ui : show-logo 
 	@./parseUI.sh
 
 build-deb : build
