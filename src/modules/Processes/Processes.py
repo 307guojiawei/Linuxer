@@ -30,8 +30,10 @@ class ProcessesWidget(QtWidgets.QWidget, Ui_processForm):
         self.myThread.setActive(False)
 
     def updateProcessData(self,payload):
+        self.setUpdatesEnabled(False)
         self.processModel.loadData(payload)
         self.lcdProcess.display(payload['count'])
+        self.setUpdatesEnabled(True)
 
     def selectProcess(self,index):
         process = self.processModel.item(index.row(),0)
@@ -62,9 +64,15 @@ class ProcessTableModel(QStandardItemModel):
         self.setHeaders()
         for item in payload:
             process = list()
-            process.append(QStandardItem(item['pid']))
-            process.append(QStandardItem(item['mem']))
-            process.append(QStandardItem(item['cpu']))
+            items=QStandardItem()
+            items.setData(int(item['pid']),Qt.DisplayRole)
+            process.append(items)
+            items = QStandardItem()
+            items.setData(float(item['mem']), Qt.DisplayRole)
+            process.append(items)
+            items = QStandardItem()
+            items.setData(float(item['cpu']), Qt.DisplayRole)
+            process.append(items)
             process.append(QStandardItem(item['user']))
             process.append(QStandardItem(item['name']))
             self.appendRow(process)
