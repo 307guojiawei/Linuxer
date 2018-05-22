@@ -60,8 +60,7 @@ class ProcessTableModel(QStandardItemModel):
 
     def loadData(self,payload): #payload是一个list,其中item是dict类型
         payload = payload["res"]
-        self.clear()
-        self.setHeaders()
+        self.removeRows(0,self.rowCount())
         for item in payload:
             process = list()
             items=QStandardItem()
