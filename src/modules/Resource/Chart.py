@@ -54,8 +54,6 @@ class QtChartCanvas(QWidget):
 
     def update_figure(self,payload):
         data=payload["data"]
-        data=1 if data<1 else data
-        data=99 if data>99 else data
         self.RecvData.append(data)
         self.RecvData=self.RecvData[-20:]
         plotData = []
@@ -66,7 +64,7 @@ class QtChartCanvas(QWidget):
             #self.scatter.replace(plotData)
             self.plotChart.axisX().setMax(len(plotData))
             if not self.setLockY:
-                self.plotChart.axisY().setRange(0, max(self.RecvData)*1.3)
+                self.plotChart.axisY().setRange(min(self.RecvData)*0.5, max(self.RecvData)*1.3)
             else:
                 self.plotChart.axisY().setRange(self.minY, self.maxY)
 

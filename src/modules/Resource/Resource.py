@@ -95,7 +95,10 @@ class MessageParser(QObject):
         res = dict()
         res['time'] = round(time.time() * 1000)
         if sender.type == 0:
-            res["data"] = payload['cpu_percent']
+            data = payload['cpu_percent']
+            data=1 if data<1 else data
+            data=99 if data>99 else data
+            res["data"] =data
             self.sinCPUOut.emit(res)
         elif sender.type == 1:
             res['data'] = payload['mem'].percent
