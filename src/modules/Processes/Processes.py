@@ -17,6 +17,7 @@ class ProcessesWidget(QtWidgets.QWidget, Ui_processForm):
         self.processModel = ProcessTableModel()
         self.processTable.setModel(self.processModel)
         self.myThread.sinOut.connect(self.updateProcessData)
+        self.processModel.selectPidPosition.connect(self.processTable.selectRow)
         self.processTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.processTable.show()
         self.selectedPID = None
@@ -31,6 +32,7 @@ class ProcessesWidget(QtWidgets.QWidget, Ui_processForm):
 
     def updateProcessData(self,payload):
         self.setUpdatesEnabled(False)
+        payload["selectPID"]=self.selectedPID
         self.processModel.loadData(payload)
         self.lcdProcess.display(payload['count'])
         self.setUpdatesEnabled(True)
@@ -47,7 +49,7 @@ class ProcessesWidget(QtWidgets.QWidget, Ui_processForm):
 
 
 class ProcessTableModel(QStandardItemModel):
-    dataChanged = pyqtSignal()
+    selectPidPosition = pyqtSignal(int)
 
 
     def __init__(self):
@@ -59,10 +61,15 @@ class ProcessTableModel(QStandardItemModel):
 
 
     def loadData(self,payload): #payload是一个list,其中item是dict类型
+        selectPid = payload["selectPID"]
+        pidPos=-1
         payload = payload["res"]
         self.removeRows(0,self.rowCount())
-        for item in payload:
+        for index,item in enumerate(payload):
             process = list()
+            if (selectPid):
+                if selectPid==int(item['pid']):
+                    pidPos=index
             items=QStandardItem()
             items.setData(int(item['pid']),Qt.DisplayRole)
             process.append(items)
@@ -76,6 +83,8 @@ class ProcessTableModel(QStandardItemModel):
             process.append(QStandardItem(item['name']))
             self.appendRow(process)
         #self.resetInternalData()
+        if pidPos!=-1:
+            self.selectPidPosition.emit(pidPos)
 
 
 
