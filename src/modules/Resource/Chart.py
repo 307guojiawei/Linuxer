@@ -75,7 +75,7 @@ class QtChartCanvas(QWidget):
             self.minY=miny
 
     def changeTop(self,isTop):
-        self.isTop=isTop
+        self.isTop = isTop
 
 
 

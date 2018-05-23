@@ -49,15 +49,16 @@ class ResourceWidget(QtWidgets.QWidget, Ui_resourceForm):
         self.netThread.setActive(False)
 
     def topBarChanged(self,value):
-        if value == 0:
+        top = self.tabWidget.tabText(value)
+        if top == 'CPU':
             self.cpu_canvas.changeTop(True)
             self.mem_canvas.changeTop(False)
             self.net_canvas.changeTop(False)
-        if value == 1:
+        if top == 'Memory':
             self.cpu_canvas.changeTop(False)
             self.mem_canvas.changeTop(True)
             self.net_canvas.changeTop(False)
-        if value == 2:
+        if top == 'Network':
             self.cpu_canvas.changeTop(False)
             self.mem_canvas.changeTop(False)
             self.net_canvas.changeTop(True)
