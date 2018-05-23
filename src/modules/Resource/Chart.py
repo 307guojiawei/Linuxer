@@ -40,7 +40,9 @@ class QtChartCanvas(QWidget):
         self.plotChart.axisY().setGridLineColor(QColor("#5D5C72"))
         self.plotChart.axisY().setLinePenColor(QColor("#9D9CA2"))
         self.plotChart.axisY().setLabelsColor(QColor("#F8F6F6"))
+        self.plotChart.axisY().setRange(0,100)
         self.plotChart.axisX().hide()
+
 
         self.RecvData = []  # 存储接收到的传感器数据
         self.RecvIndx = 0
