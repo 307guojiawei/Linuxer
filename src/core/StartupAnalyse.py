@@ -21,8 +21,11 @@ def getBootTime():
             res = line.split("=")[1]
             res = res.split("s")[0]
             buf = res.split("min")
-            totalTime = float(buf[0])*60+float(buf[1])
-    return round(totalTime,1)
+            if len(buf)>=2:
+                totalTime = float(buf[0])*60+float(buf[1])
+            else:
+                totalTime=float(buf[0])
+            return round(totalTime,1)
 
 def getCriticalChain():
     with os.popen('systemd-analyze critical-chain') as fd:
