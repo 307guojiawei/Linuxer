@@ -7,6 +7,8 @@ from modules.Resource.Resource import ResourceWidget
 from modules.Setup.Setup import SetupWidget
 from modules.Startups.Startups import StartupsWidget
 
+
+
 pages = [               #右侧页面选择
     'btnDash',
     'btnProcesses',
@@ -23,6 +25,11 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.mainWidget = DashWidget(self.mainWidgetBox)   #初始页面
         self.verticalLayout.addWidget(self.mainWidget)
         self.mainWidget.show()
+        self.dash=None
+        self.proc=None
+        self.res=None
+        self.setup=None
+        self.start=None
 
     def selectPage(self):   #响应左边slidebar切换页面操作
         sender = self.sender()
@@ -44,19 +51,28 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.mainWidget.hide()
         title = ""
         if name == "btnDash":
-            self.mainWidget = DashWidget(self.mainWidgetBox)
+            if self.dash is None:
+                self.dash=DashWidget(self.mainWidgetBox)
+            self.mainWidget = self.dash
             title = "System Dash Board"
         elif name == "btnProcesses":
-            self.mainWidget = ProcessesWidget(self.mainWidgetBox)
+            self.proc=ProcessesWidget(self.mainWidgetBox)
+            self.mainWidget = self.proc
             title = "Current Processes"
         elif name == "btnResource":
-            self.mainWidget = ResourceWidget(self.mainWidgetBox)
+            if self.res is None:
+                self.res=ResourceWidget(self.mainWidgetBox)
+            self.mainWidget = self.res
             title = "System Resource Chart"
         elif name == "btnSetup":
-            self.mainWidget = SetupWidget(self.mainWidgetBox)
+            if self.setup is None:
+                self.setup=SetupWidget(self.mainWidgetBox)
+            self.mainWidget = self.setup
             title = "Setup & Info"
         elif name == "btnStartups":
-            self.mainWidget = StartupsWidget(self.mainWidgetBox)
+            if self.start is None:
+                self.start=StartupsWidget(self.mainWidgetBox)
+            self.mainWidget = self.start
             title = "Start up Analyse"
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
